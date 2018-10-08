@@ -1,10 +1,10 @@
 # create product build
-FROM node:alpine as builder
+FROM node:alpine AS builder
 WORKDIR /app
 COPY package*.json ./
-RUN npm install
+RUN yarn install --upgrade
 COPY . .
-RUN npm run build
+RUN yarn build
 
 # run with nginx
 FROM nginx
